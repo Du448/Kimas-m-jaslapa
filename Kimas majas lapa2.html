@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="lv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K/A Rokassprādzes</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f3f0;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+        .text-rose-500 {
+            color: #d86464;
+        }
+        .bg-rose-500 {
+            background-color: #d86464;
+        }
+        .hover\:bg-rose-600:hover {
+            background-color: #c45a5a;
+        }
+        /* Simple animation for modal */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-[#f7f3f0]">
+
+    <!-- Header -->
+    <header class="bg-rose-500 text-white py-4 shadow-lg sticky top-0 z-40 transition-all duration-300">
+        <div class="container flex justify-between items-center mx-auto px-4">
+            <h1 class="text-3xl font-bold tracking-wide">K/A Rokassprādzes</h1>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex">
+                <ul class="flex space-x-6 text-lg font-semibold">
+                    <li><a href="#par-mums" class="hover:text-gray-200 transition-colors duration-300">Par Mums</a></li>
+                    <li><a href="#produkti" class="hover:text-gray-200 transition-colors duration-300">Produkti</a></li>
+                    <li><a href="#atsauksmes" class="hover:text-gray-200 transition-colors duration-300">Atsauksmes</a></li>
+                    <li><a href="#dizains" class="hover:text-gray-200 transition-colors duration-300">Dizaina Darbnīca</a></li>
+                    <li><a href="#zimejumi" class="hover:text-gray-200 transition-colors duration-300">Iedvesma</a></li>
+                    <li><a href="#sazinies" class="hover:text-gray-200 transition-colors duration-300">Sazinies</a></li>
+                </ul>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden block text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation -->
+        <nav id="mobile-menu" class="hidden md:hidden bg-rose-500">
+            <ul class="flex flex-col items-center py-4 space-y-4 text-lg font-semibold">
+                <li><a href="#par-mums" class="hover:text-gray-200 transition-colors duration-300">Par Mums</a></li>
+                <li><a href="#produkti" class="hover:text-gray-200 transition-colors duration-300">Produkti</a></li>
+                <li><a href="#atsauksmes" class="hover:text-gray-200 transition-colors duration-300">Atsauksmes</a></li>
+                 <li><a href="#dizains" class="hover:text-gray-200 transition-colors duration-300">Dizaina Darbnīca</a></li>
+                <li><a href="#zimejumi" class="hover:text-gray-200 transition-colors duration-300">Iedvesma</a></li>
+                <li><a href="#sazinies" class="hover:text-gray-200 transition-colors duration-300">Sazinies</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="py-20 text-center bg-gradient-to-b from-[#f7f3f0] to-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-5xl md:text-6xl font-extrabold text-[#4a4a4a] mb-4">Unikāls dizains. Meistarība.</h2>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Radošas, ar mīlestību darinātas rokassprādzes katrai gaumei.
+            </p>
+            <a href="#produkti" class="bg-rose-500 text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-rose-600 transition-all duration-300 transform hover:scale-105">
+                Apskatīt kolekciju
+            </a>
+        </div>
+    </section>
+
+    <!-- Product Gallery -->
+    <section id="produkti" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h3 class="text-4xl font-bold text-center mb-10 text-[#4a4a4a]">Mūsu darbi</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/958dfb1e-f069-4bef-b3f8-89ab4b1f8f46.jpeg?updatedAt=1756660475248', 'Vasaras noskaņa', 'Spilgtu krāsu pērlīšu rokassprādžu komplekts, kas ienesīs vasaras prieku tavā ikdienā.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/958dfb1e-f069-4bef-b3f8-89ab4b1f8f46.jpeg?updatedAt=1756660475248" alt="Vasaras noskaņas rokassprādzes" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Vasaras noskaņa</h4>
+                        <p class="text-rose-500 font-bold">€3.00</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/2355d8ec-f557-4322-81e4-2130d7960966.jpeg?updatedAt=1756660475201', 'Zelta maigums', 'Eleganta rokassprādze ar baltām un zelta pērlītēm, kas izcels tavu sievišķību.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/2355d8ec-f557-4322-81e4-2130d7960966.jpeg?updatedAt=1756660475201" alt="Zelta maiguma rokassprādze" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Zelta maigums</h4>
+                        <p class="text-rose-500 font-bold">€2.50</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/82357655-d2c6-4c70-9e12-740bf4e2f711.jpeg?updatedAt=1756660474760', 'Varavīksnes prieks', 'Jautra un krāsaina rokassprādze, kas piestāvēs jebkuram tērpam un uzlabos garastāvokli.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/82357655-d2c6-4c70-9e12-740bf4e2f711.jpeg?updatedAt=1756660474760" alt="Varavīksnes prieka rokassprādze" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Varavīksnes prieks</h4>
+                        <p class="text-rose-500 font-bold">€2.00</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/ece7f9ad-288c-4970-a222-7302a3d30323.jpeg?updatedAt=1756660474687', 'Dabas krāsas', 'Dabas toņu iedvesmota rokassprādze ar zaļām, brūnām un bēšām pērlītēm.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/ece7f9ad-288c-4970-a222-7302a3d30323.jpeg?updatedAt=1756660474687" alt="Dabas krāsu rokassprādze" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Dabas krāsas</h4>
+                        <p class="text-rose-500 font-bold">€2.50</p>
+                    </div>
+                </div>
+                
+                 <!-- Product Card 7 -->
+                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/3c457a79-c25b-4a5c-84da-63d3fa3e1134.jpeg?updatedAt=1756660723388', 'Krāsu Sprādziens', 'Spilgta un enerģiska rokassprādze, kas piešķirs krāsu jebkuram tērpam. Lieliska vasaras noskaņai!')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/3c457a79-c25b-4a5c-84da-63d3fa3e1134.jpeg?updatedAt=1756660723388" alt="Krāsu sprādziena rokassprādze" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Krāsu Sprādziens</h4>
+                        <p class="text-rose-500 font-bold">€2.50</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 8 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/Couples%20bracelet%20Black%20Onyx%20bracelet%20Set%20of%20two_.jpeg?updatedAt=1756660723316', 'Draudzības Spēks (Komplekts)', 'Elegants melnā oniksa rokassprādžu komplekts diviem. Lieliska dāvana labākajam draugam vai otrajai pusītei.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/Couples%20bracelet%20Black%20Onyx%20bracelet%20Set%20of%20two_.jpeg?updatedAt=1756660723316" alt="Draudzības spēka rokassprādzes" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Draudzības Spēks (Komplekts)</h4>
+                        <p class="text-rose-500 font-bold">€5.00</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 9 -->
+                 <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/8c3022c4-98c2-44ba-9e77-f0d0322a2a94.jpeg?updatedAt=1756660723210', 'Kristāla Dzidrums', 'Maiga un gaisīga rokassprādze no dzidrām un baltām pērlītēm. Pievieno elegances pieskārienu.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/8c3022c4-98c2-44ba-9e77-f0d0322a2a94.jpeg?updatedAt=1756660723210" alt="Kristāla dzidruma rokassprādze" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Kristāla Dzidrums</h4>
+                        <p class="text-rose-500 font-bold">€3.00</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 10 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/0e87eac5-9a11-4699-b245-f8a363a626b6.jpeg?updatedAt=1756660723098', 'Debesu Zilums', 'Gaiši zilu un baltu pērlīšu rokassprādze, kas atgādina par vasaras debesīm un vieglumu.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/0e87eac5-9a11-4699-b245-f8a363a626b6.jpeg?updatedAt=1756660723098" alt="Debesu ziluma rokassprādze" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Debesu Zilums</h4>
+                        <p class="text-rose-500 font-bold">€2.50</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 11 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/4e3e7568-06f0-470b-ae5d-2e60c22ea8a3.jpeg?updatedAt=1756661368010', 'Jautrā Konfeti', 'Krāsainu pērlīšu sajaukums, kas atgādina par svētkiem un prieku. Lieliska dāvana sev vai draudzenei.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/4e3e7568-06f0-470b-ae5d-2e60c22ea8a3.jpeg?updatedAt=1756661368010" alt="Jautrās konfeti rokassprādze" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Jautrā Konfeti</h4>
+                        <p class="text-rose-500 font-bold">€2.00</p>
+                    </div>
+                </div>
+                
+                <!-- Product Card 12 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/1c245202-ed14-4a82-a04e-2690fbf35a0a.jpeg?updatedAt=1756661367905', 'Melnbaltā Elegance', 'Klasiska melnbaltu pērlīšu kombinācija ar zelta akcentiem. Piestāvēs gan ikdienas, gan svētku tērpam.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/1c245202-ed14-4a82-a04e-2690fbf35a0a.jpeg?updatedAt=1756661367905" alt="Melnbaltās elegances rokassprādze" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Melnbaltā Elegance</h4>
+                        <p class="text-rose-500 font-bold">€3.00</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 13 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/b5afcf98-0dcd-4d21-89e5-da3e2d8d147b.jpeg?updatedAt=1756661367908', 'Pasteļu Sapnis', 'Maigu pasteļtoņu rokassprādze, kas ienesīs tavā dienā vieglumu un romantiku.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/b5afcf98-0dcd-4d21-89e5-da3e2d8d147b.jpeg?updatedAt=1756661367908" alt="Pasteļu sapņa rokassprādze" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Pasteļu Sapnis</h4>
+                        <p class="text-rose-500 font-bold">€2.50</p>
+                    </div>
+                </div>
+                
+                <!-- Product Card 14 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/6ec5e22f-0662-4e10-861c-530f0ef9d7bd.jpeg?updatedAt=1756661367750', 'Zelta Mirdzums', 'Smalka rokassprādze ar baltām pērlītēm un mirdzošiem zelta elementiem. Elegance katrā detaļā.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/6ec5e22f-0662-4e10-861c-530f0ef9d7bd.jpeg?updatedAt=1756661367750" alt="Zelta mirdzuma rokassprādze" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Zelta Mirdzums</h4>
+                        <p class="text-rose-500 font-bold">€3.50</p>
+                    </div>
+                </div>
+
+                <!-- Product Card 15 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 cursor-pointer" 
+                     onclick="showModal('https://ik.imagekit.io/npy3xzn3b/_Beebeecraft%20_Flower%20Seed%20Beaded%20_Bracelet_%20Dear_.jpeg?updatedAt=1756661367551', 'Pļavas Ziedi', 'Burvīga rokassprādze, kas veidota no mazām pērlītēm, atgādinot par vasaras pļavā lasītām margrietiņām.')"
+                     role="button" tabindex="0" onkeydown="if(event.key === 'Enter') this.click()">
+                    <img src="https://ik.imagekit.io/npy3xzn3b/_Beebeecraft%20_Flower%20Seed%20Beaded%20_Bracelet_%20Dear_.jpeg?updatedAt=1756661367551" alt="Pļavas ziedu rokassprādze" class="w-full h-72 object-cover">
+                    <div class="p-6 text-center">
+                        <h4 class="text-xl font-semibold mb-2 text-[#4a4a4a]">Pļavas Ziedi</h4>
+                        <p class="text-rose-500 font-bold">€3.00</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="par-mums" class="py-12 bg-[#f7f3f0]">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-4xl font-bold mb-6 text-[#4a4a4a]">Par Mums</h3>
+            <div class="max-w-3xl mx-auto text-gray-600 text-lg">
+                <p class="mb-4">
+                    Šī ir vieta, kur satiekas radošums un sirds darbs. Mans vārds ir <strong>Kima</strong>, un es veidoju katru rokassprādzi ar lielu rūpību un mīlestību. Man ir 10 gadi, un manas idejas visbiežāk nāk no maniem zīmējumiem. Katra rokassprādze ir unikāla un atspoguļo manu personīgo stilu un radošumu.
+                </p>
+                <p class="mb-4">
+                    Esmu pārliecināta, ka tā kļūs par tavu mīļāko aksesuāru.
+                </p>
+                <p>
+                    Paldies, ka izvēlies atbalstīt manu mazo biznesu!
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section id="atsauksmes" class="py-12 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-4xl font-bold mb-10 text-[#4a4a4a]">Ko saka mūsu klienti</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-[#f7f3f0] p-6 rounded-lg shadow-lg text-left">
+                    <p class="text-gray-600 mb-4 italic">"Pasūtīju meitai dāvanā rokassprādzi, viņa bija sajūsmā! Ļoti skaists un kvalitatīvs darbs. Paldies, Kima!"</p>
+                    <p class="font-bold text-rose-500">- Anna</p>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-[#f7f3f0] p-6 rounded-lg shadow-lg text-left">
+                    <p class="text-gray-600 mb-4 italic">"Ātra piegāde un brīnišķīga komunikācija. Rokassprādze ir vēl skaistāka nekā attēlos. Noteikti iesaku!"</p>
+                    <p class="font-bold text-rose-500">- Jānis</p>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-[#f7f3f0] p-6 rounded-lg shadow-lg text-left">
+                    <p class="text-gray-600 mb-4 italic">"Apbrīnojami, ko tik jauna meitene spēj radīt! Dizains ir ļoti oriģināls. Atbalstīsim jaunos talantus!"</p>
+                    <p class="font-bold text-rose-500">- Līga</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gemini API Design Workshop Section -->
+    <section id="dizains" class="py-12 bg-[#fdfaf8]">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-4xl font-bold mb-4 text-[#4a4a4a]">✨ Dizaina Darbnīca ✨</h3>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Nezini, ko tieši vēlies? Ieraksti dažus atslēgvārdus vai idejas, un mūsu maģiskais palīgs radīs unikālu dizaina aprakstu tieši tev!
+            </p>
+            <div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+                <textarea id="ideaInput" class="w-full p-3 border border-gray-300 rounded-md mb-4 focus:ring-2 focus:ring-rose-400 focus:border-transparent transition" rows="3" placeholder="Piemēram: mežs, sūnas, ogas, miers..."></textarea>
+                <button id="generateBtn" class="bg-rose-500 text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-rose-600 transition-all duration-300 transform hover:scale-105 w-full">
+                    Ģenerēt dizainu ✨
+                </button>
+            </div>
+            <div id="ideaResult" class="mt-8 max-w-xl mx-auto bg-white p-6 rounded-lg shadow-lg text-left min-h-[100px] hidden">
+                <!-- Generated content will appear here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Drawing Inspiration Section -->
+    <section id="zimejumi" class="py-12 bg-[#f7f3f0]">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-4xl font-bold mb-6 text-[#4a4a4a]">Iedvesma</h3>
+            <p class="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Manas rokassprādzes ir iedvesmotas no maniem zīmējumiem. Katrs zīmējums ir stāsts, kas pārvēršas par rotaslietu!
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Drawing 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://placehold.co/600x400/C1FFDD/000000?text=Zīmējums+2" alt="Kimai zīmējums 2" class="w-full h-72 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-lg font-semibold text-[#4a4a4a]">Abstrakts dizains</p>
+                    </div>
+                </div>
+                <!-- Drawing 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://placehold.co/600x400/DDC1FF/000000?text=Zīmējums+3" alt="Kimai zīmējums 3" class="w-full h-72 object-cover">
+                    <div class="p-4 text-center">
+                        <p class="text-lg font-semibold text-[#4a4a4a]">Ģeometrisks zīmējums</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="sazinies" class="py-12 bg-white">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-4xl font-bold mb-6 text-[#4a4a4a]">Sazinies</h3>
+            <p class="text-xl text-gray-600 mb-8">
+                Ja vēlies iegādāties rokassprādzi vai pasūtīt savu unikālo dizainu, sazinies ar mani!
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6">
+                <a href="mailto:ka.rokasspradzes@gmail.com" class="bg-rose-500 text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-rose-600 transition-all duration-300 transform hover:scale-105">
+                    Sūtīt e-pastu
+                </a>
+                <a href="https://www.youtube.com/@K2705A" target="_blank" class="bg-[#4a4a4a] text-white px-6 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-gray-600 transition-all duration-300 transform hover:scale-105">
+                    Apskatīt YouTube kanālu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-rose-500 text-white py-4 text-center">
+        <div class="container mx-auto px-4">
+            <p>&copy; 2024 K/A Rokassprādzes. Visas tiesības aizsargātas.</p>
+        </div>
+    </footer>
+
+    <!-- Modal for product details -->
+    <div id="productModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 hidden z-50">
+        <div class="bg-white rounded-lg shadow-xl max-w-lg w-full overflow-hidden relative animate-fade-in-up">
+            <button class="absolute top-3 right-3 text-gray-400 hover:text-gray-800 transition-colors" onclick="hideModal()" aria-label="Aizvērt">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <img id="modalImage" src="" alt="Rokassprādze" class="w-full h-80 object-cover">
+            <div class="p-6 text-center">
+                <h4 id="modalTitle" class="text-2xl font-bold mb-2 text-[#4a4a4a]"></h4>
+                <p id="modalDescription" class="text-gray-600"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- Image Loading ---
+        const images = {
+            '5884248269926813588.jpg': 'uploaded:5884248269926813588.jpg-46c3756c-a9c0-4535-8162-514bf57562ea',
+            '5884248269926813585.jpg': 'uploaded:5884248269926813585.jpg-34cca5c9-2324-48dd-9b35-1ebaa37bd91e'
+        };
+
+        window.onload = function() {
+            const imageElements = document.querySelectorAll('img[data-original]');
+            imageElements.forEach(img => {
+                const originalName = img.dataset.original;
+                const contentFetchId = images[originalName];
+                if (contentFetchId) {
+                    img.src = contentFetchId;
+                }
+            });
+        };
+
+        // --- Mobile Menu ---
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = mobileMenu.querySelectorAll('a');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- Product Modal ---
+        const modal = document.getElementById('productModal');
+
+        function showModal(imageName, title, description) {
+            const modalImage = document.getElementById('modalImage');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalDescription = document.getElementById('modalDescription');
+
+            const contentFetchId = images[imageName];
+            modalImage.src = contentFetchId ? contentFetchId : imageName;
+            
+            modalTitle.textContent = title;
+            modalDescription.textContent = description;
+            modal.classList.remove('hidden');
+        }
+
+        function hideModal() {
+            modal.classList.add('hidden');
+        }
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                hideModal();
+            }
+        });
+
+        window.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+                hideModal();
+            }
+        });
+
+        // --- Gemini API Feature: Design Idea Generator ---
+        const generateBtn = document.getElementById('generateBtn');
+        const ideaInput = document.getElementById('ideaInput');
+        const ideaResult = document.getElementById('ideaResult');
+
+        generateBtn.addEventListener('click', generateBraceletIdea);
+
+        async function generateBraceletIdea() {
+            const userInput = ideaInput.value;
+            if (!userInput.trim()) {
+                ideaResult.innerHTML = '<p class="text-red-500">Lūdzu, ievadiet kādu ideju vai atslēgvārdu.</p>';
+                ideaResult.classList.remove('hidden');
+                return;
+            }
+
+            ideaResult.classList.remove('hidden');
+            ideaResult.innerHTML = '<div class="flex justify-center items-center"><div class="animate-spin rounded-full h-8 w-8 border-b-2 border-rose-500"></div><p class="ml-3">Radām maģiju...</p></div>';
+            generateBtn.disabled = true;
+            generateBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            const systemPrompt = `You are a creative and cheerful jewelry designer for a charming brand run by a 10-year-old girl. Your task is to generate a unique and inspiring bracelet design description based on user's keywords. The description should be short, whimsical, and visually rich, mentioning colors, potential materials (like beads, charms, threads), and the overall feeling. The response must be in Latvian.`;
+            const userQuery = `Generate a bracelet design description based on the following keywords: "${userInput}".`;
+            const apiKey = ""; // API key is handled by the environment
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+            try {
+                const payload = {
+                    contents: [{ parts: [{ text: userQuery }] }],
+                    systemInstruction: {
+                        parts: [{ text: systemPrompt }]
+                    },
+                };
+
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application-json' },
+                    body: JSON.stringify(payload)
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API error: ${response.statusText}`);
+                }
+
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+
+                if (candidate && candidate.content?.parts?.[0]?.text) {
+                    let text = candidate.content.parts[0].text;
+                    // Basic markdown to HTML for presentation
+                    text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\*/g, '');
+                    text = text.replace(/\n/g, '<br>');
+                    ideaResult.innerHTML = `<p>${text}</p>`;
+                } else {
+                    throw new Error('No content received from API.');
+                }
+
+            } catch (error) {
+                console.error('Error calling Gemini API:', error);
+                ideaResult.innerHTML = '<p class="text-red-500">Atvainojiet, radās kļūme mēģinot radīt dizainu. Lūdzu, mēģiniet vēlāk.</p>';
+            } finally {
+                generateBtn.disabled = false;
+                generateBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            }
+        }
+    </script>
+</body>
+</html>
